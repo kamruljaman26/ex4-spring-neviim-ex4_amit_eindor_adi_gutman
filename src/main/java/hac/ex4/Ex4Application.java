@@ -27,36 +27,9 @@ public class Ex4Application {
             product.setDiscount(12);
             product.setDiscount(12);
             product.setPrice(12);
-            product.setName("Poggi");
+            product.setName("Bread");
             product.setQuantity(12);
-            log.info(repository.save(product).toString());
-
-
-            // fetch all customers
-/*            log.info("Customers found with findAll():");
-            log.info("-------------------------------");
-            for (Customer customer : repository.findAll()) {
-                log.info(customer.toString());
-            }
-            log.info("");
-
-            // fetch an individual customer by ID
-            Customer customer = repository.findById(1L);
-            log.info("Customer found with findById(1L):");
-            log.info("--------------------------------");
-            log.info(customer.toString());
-            log.info("");
-
-            // fetch customers by last name
-            log.info("Customer found with findByLastName('Bauer'):");
-            log.info("--------------------------------------------");
-            repository.findByLastName("Bauer").forEach(bauer -> {
-                log.info(bauer.toString());
-            });
-            // for (Customer bauer : repository.findByLastName("Bauer")) {
-            //  log.info(bauer.toString());
-            // }
-            log.info("");*/
+            log.error(repository.save(product).toString());
         };
     }
 }

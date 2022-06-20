@@ -11,10 +11,14 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
+/**
+ * Config Web MVC and Thymeleaf engine
+ */
 @EnableWebMvc
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    // Thymeleaf template resolver serving HTML 5
     @Bean
     @Description("Thymeleaf template resolver serving HTML 5")
     public ClassLoaderTemplateResolver templateResolver() {
@@ -31,6 +35,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
 
+    // Thymeleaf template engine with Spring integration
     @Bean
     @Description("Thymeleaf template engine with Spring integration")
     public SpringTemplateEngine templateEngine() {
@@ -41,6 +46,7 @@ public class WebConfig implements WebMvcConfigurer {
         return templateEngine;
     }
 
+    // Thymeleaf view resolver
     @Bean
     @Description("Thymeleaf view resolver")
     public ViewResolver viewResolver() {
@@ -56,5 +62,4 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
     }
-
 }

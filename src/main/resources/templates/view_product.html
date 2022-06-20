@@ -19,12 +19,17 @@
     <!--Header-->
     <div class="mt-5" th:replace="fragments/header :: header"></div>
 
-    <form action="home" method="get">
+    <form class="mt-3" action="home" method="get">
         <button type="submit" class="btn btn-primary">Back</button>
     </form>
 
+    <!-- show error message -->
+    <div th:if="${message != null}"
+         th:text="${message}"
+         class="mt-2 alert alert-success" role="alert"></div>
+
     <!--Add product-->
-    <div class="card mt-5">
+    <div class="card mt-3 mb-5">
 
         <div class="card-body">
             <h2>All Products</h2>
@@ -39,9 +44,14 @@
                             <img width="200" height="300" th:src="${product.src}" class="card-img-top" alt="">
                             <div class="card-body">
                                 <h3 th:text="Name +': ' +${product.name}"></h3>
+                                <div th:text="ID +': ' +${product.id}"></div>
                                 <div th:text="Price +': ' +${product.price}"></div>
                                 <div th:text="Quantity +': ' +${product.quantity}"></div>
                                 <div th:text="Discount +': ' +${product.discount}"></div>
+
+                                <form th:action="view-product+'?' + 'id='+ ${product.id}" method="post">
+                                    <button type="submit" class="btn btn-primary">Remove Product</button>
+                                </form>
                             </div>
                         </div>
                     </div>

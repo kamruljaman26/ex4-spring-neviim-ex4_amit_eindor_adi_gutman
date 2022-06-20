@@ -150,7 +150,20 @@ public class AdminController {
     public ModelAndView viewProduct(Model model) {
         // create ModelAndView
         ModelAndView modelAndView = new ModelAndView("view_product");
-        modelAndView.addObject("products", service.findAll());
+        modelAndView.addObject("products", service.findAll() );
+        return modelAndView;
+    }
+
+    @PostMapping("view-product")
+    public ModelAndView removeViewProduct(@RequestParam Map<String, String> allParams) {
+        long id = Long.parseLong(allParams.get("id"));
+        Product product = service.findById(id);
+        service.delete(product);
+
+        // create ModelAndView
+        ModelAndView modelAndView = new ModelAndView("view_product");
+        modelAndView.addObject("message", "Product removed successfully.");
+        modelAndView.addObject("products", service.findAll() );
         return modelAndView;
     }
 
