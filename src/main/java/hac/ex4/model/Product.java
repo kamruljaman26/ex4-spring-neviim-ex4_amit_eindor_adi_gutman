@@ -46,6 +46,14 @@ public class Product implements Serializable {
         this.discount = discount;
     }
 
+    public Product(@NotEmpty String name, String src, @Min(0) int quantity, @Min(0) double price, @Min(0) double discount) {
+        this.name = name;
+        this.src = src;
+        this.quantity = quantity;
+        this.price = price;
+        this.discount = discount;
+    }
+
     public long getId() {
         return id;
     }

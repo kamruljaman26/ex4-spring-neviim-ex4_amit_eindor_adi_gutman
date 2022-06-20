@@ -44,7 +44,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     @Description("Thymeleaf view resolver")
     public ViewResolver viewResolver() {
-
         var viewResolver = new ThymeleafViewResolver();
 
         viewResolver.setTemplateEngine(templateEngine());
@@ -57,4 +56,5 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
     }
+
 }
