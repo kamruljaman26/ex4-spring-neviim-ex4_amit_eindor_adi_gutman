@@ -19,9 +19,9 @@
 <div class="container">
 
     <!--Header-->
-    <div class="mt-5 mb-3" th:replace="fragments/header :: header"></div>
+    <div class="mt-5" th:replace="fragments/header :: header"></div>
 
-    <form action="logout" method="post">
+    <form class="mt-2" th:action="@{/logout}" method="post">
         <button type="submit" class="btn btn-primary">Logout</button>
     </form>
 

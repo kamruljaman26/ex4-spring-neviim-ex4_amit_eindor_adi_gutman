@@ -31,14 +31,16 @@ public class AdminController {
     @GetMapping("login")
     public ModelAndView login(@RequestParam Map<String, String> allParams) {
         // create ModelAndView
-        ModelAndView modelAndView = new ModelAndView("add_product");
+        ModelAndView modelAndView = new ModelAndView("admin_login");
         if(allParams.get("error") != null){
             modelAndView.addObject("message", "Invalid username or password please try again!");
         }
 
-        modelAndView.addObject("message", "Invalid username or password please try again!");
+        if(allParams.get("logout") != null){
+            modelAndView.addObject("message", "You are logged out!");
+        }
 
-        return new ModelAndView("admin_login");
+        return modelAndView;
     }
 
     @GetMapping("home")
