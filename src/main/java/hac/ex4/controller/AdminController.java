@@ -61,13 +61,17 @@ public class AdminController {
         int quantity = Integer.parseInt(allParams.get("quantity"));
         int price = Integer.parseInt(allParams.get("price"));
         int discount = Integer.parseInt(allParams.get("discount"));
-        String src = allParams.get("src");
 
         // crate product and save in db
-        Product product = new Product(name, src, quantity, price, discount);
+        Product product = new Product();
+        product.setName(name);
+        product.setQuantity(quantity);
+        product.setPrice(price);
+        product.setQuantity(discount);
+        if(allParams.get("src") != null){
+            product.setSrc(allParams.get("src"));
+        }
         service.save(product);
-
-//        logger.error(product.toString());
 
         // create ModelAndView
         ModelAndView modelAndView = new ModelAndView("add_product");
@@ -104,7 +108,15 @@ public class AdminController {
         }
 
         // crate product and save in db
-        Product product = new Product(id, name, src, quantity, price, discount);
+        Product product = new Product();
+        product.setId(id);
+        product.setName(name);
+        product.setQuantity(quantity);
+        product.setPrice(price);
+        product.setQuantity(discount);
+        if(src != null){
+            product.setSrc(src);
+        }
         service.save(product);
 
         // create ModelAndView
