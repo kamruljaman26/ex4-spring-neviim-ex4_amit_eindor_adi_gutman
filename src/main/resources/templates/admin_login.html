@@ -31,7 +31,7 @@
                 <p>Enter Admin Username and password to login</p>
 
                 <!-- Login Form -->
-                <form action="login" method="post">
+                <form th:action="@{/authenticateTheUser}" method="post">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" id="username" name="username">

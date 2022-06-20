@@ -29,21 +29,16 @@ public class AdminController {
     }
 
     @GetMapping("login")
-    public ModelAndView index(Model model) {
-        return new ModelAndView("admin_login");
-    }
-
-    @PostMapping("login")
-    public ModelAndView adminLogin(Model model,
-                                   @RequestParam String username,
-                                   @RequestParam String password) {
-        // verify pass ---
-        if (username.equals("admin") && password.equals("admin")) {
-            return new ModelAndView("redirect:home");
-        } else {
-            model.addAttribute("message", "Invalid username or password please try again");
-            return new ModelAndView("admin_login");
+    public ModelAndView login(@RequestParam Map<String, String> allParams) {
+        // create ModelAndView
+        ModelAndView modelAndView = new ModelAndView("add_product");
+        if(allParams.get("error") != null){
+            modelAndView.addObject("message", "Invalid username or password please try again!");
         }
+
+        modelAndView.addObject("message", "Invalid username or password please try again!");
+
+        return new ModelAndView("admin_login");
     }
 
     @GetMapping("home")

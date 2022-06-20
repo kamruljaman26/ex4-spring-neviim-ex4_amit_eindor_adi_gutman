@@ -19,10 +19,14 @@
 <div class="container">
 
     <!--Header-->
-    <div class="mt-5" th:replace="fragments/header :: header"></div>
+    <div class="mt-5 mb-3" th:replace="fragments/header :: header"></div>
+
+    <form action="logout" method="post">
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
 
     <!--  login form  -->
-    <div class="card mt-5">
+    <div class="card mt-3">
         <div class="card-body">
             <div class="card-body">
 
